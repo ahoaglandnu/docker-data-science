@@ -14,11 +14,15 @@ Stop:
 
 View container status:
 
-`docker-compose ps -a`
+`docker-compose ps`
 
 Start:
 
 `docker-compose start`
+
+Remove:
+
+`docker-compose down`
 
 Additional commands:
 
