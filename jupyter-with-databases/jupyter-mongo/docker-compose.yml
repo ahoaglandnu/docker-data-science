@@ -8,18 +8,20 @@ services:
     ports:
       - 8888:8888
     links:
-      - db
+      - mongodb
     networks:
       jupyter_mongo_net:
 
-  db:
-    image: postgres:alpine
+  mongodb:
+    image: mongo:3.6.3
     restart: always
     ports:
-      - 5432:5432
+      - 27017:27017
     environment:
-      POSTGRES_USER: testuser
-      POSTGRES_PASSWORD: testpassword
+      MONGODB_USER: testuser
+      MONGODB_PASSWORD: testpassword
+    volumes:
+      - ./data/db:/data/db
     networks:
       jupyter_mongo_net:
 
