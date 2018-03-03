@@ -22,4 +22,4 @@ Start:
 
 Additional commands:
 
-docker-compose --help
+`docker-compose --help`
