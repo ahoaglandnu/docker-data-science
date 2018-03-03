@@ -1,4 +1,4 @@
-# Jupyter Notebook with PostGreSQL
+# Jupyter Notebook with MongoDB
 
 Initial:
 
