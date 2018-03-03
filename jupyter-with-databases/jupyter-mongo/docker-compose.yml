@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  jupyter:
+    image: jupyter/base-notebook
+    volumes:
+      - ..:/home/jovyan/work
+    ports:
+      - 8888:8888
+    links:
+      - db
+    networks:
+      jupyter_mongo_net:
+
+  db:
+    image: postgres:alpine
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: testuser
+      POSTGRES_PASSWORD: testpassword
+    networks:
+      jupyter_mongo_net:
+
+networks:
+  jupyter_mongo_net:
