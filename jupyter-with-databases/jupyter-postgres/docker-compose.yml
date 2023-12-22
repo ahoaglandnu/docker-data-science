@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  jupyter:
+    image: jupyter/base-notebook
+    volumes:
+      - ./work:/home/jovyan/work
+    ports:
+      - "8888:8888"
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:alpine
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data  o
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: testuser
+      POSTGRES_PASSWORD: testpassword
+      POSTGRES_DB: testdb
