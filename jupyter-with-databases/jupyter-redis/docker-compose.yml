@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  jupyter:
+    image: jupyter/base-notebook
+    volumes:
+      - ./work:/home/jovyan/work 
+    ports:
+      - "8888:8888"
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
